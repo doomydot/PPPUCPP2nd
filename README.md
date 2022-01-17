@@ -1,5 +1,7 @@
 # Exercises (Try these and Drills) from Bjarne Stroustrup's Programming, Principles and Practice Using C++ (2nd Edition)
 
+---
+
 ## About my exercises
 
 I'm neither a seasoned programmer nor a newbie, though my knowledge is mostly concentrated on scripting
