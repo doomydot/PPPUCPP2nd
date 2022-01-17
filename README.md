@@ -1,5 +1,15 @@
 # Exercises (Try these and Drills) from Bjarne Stroustrup's Programming, Principles and Practice Using C++ (2nd Edition)
 
+## Why?
+
+Having mostly done programming sporadically and for game development I feel my foundational understanding of 
+it all wasn't strong enough. And since I'll most likely be working with Unreal Engine in the future, which 
+uses C++. I feel it's a good idea to build that foundation, so that I can trust and contribute to my future
+games codebase.
+
+In this repository you will find my solutions to mostly every excersize I found worth doing in the book.
+I upload them so that others may use this repo as a reference to compare their solutions.
+
 ---
 
 ## About my exercises
@@ -16,3 +26,7 @@ expected by the book.
 
 - I don't use "std_lib_facilities.h" which means if functions that derive from it are required
   I will define them myself.
+
+## Post Mortem
+
+When finished I will discuss the book and it's content here.
