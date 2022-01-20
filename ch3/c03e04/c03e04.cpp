@@ -23,3 +23,9 @@ int main()
     cout << "Product: " << val1 * val2 << endl;
     cout << "Ratio: " << ((val1 > val2) ? val1 / val2 : val2 / val1) << endl;
 }
+
+/*
+Write a program that prompts the user to enter two integer values. 
+Store these values in int variables named val1 and val 2. 
+Write your program to determine the smallest, largest sum, difference, product and ratio of these values and report them to the user.
+*/
