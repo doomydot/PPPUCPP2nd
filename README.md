@@ -3,9 +3,8 @@
 ## Why?
 
 Having mostly done programming sporadically and for game development I feel my foundational understanding of 
-it all wasn't strong enough. And since I'll most likely be working with Unreal Engine in the future, which 
-uses C++. I feel it's a good idea to build that foundation, so that I can trust and contribute to my future
-games codebase.
+core concepts and terminology wasn't strong enough. I'll be working with Unreal Engine which uses C++, 
+and I'd like to make rigid contributions to my games codebase.
 
 In this repository you will find my solutions to mostly every excersize I found worth doing in the book.
 I upload them so that others may use this repo as a reference to compare their solutions.
@@ -26,6 +25,20 @@ expected by the book.
 
 - I don't use "std_lib_facilities.h" which means if functions that derive from it are required
   I will define them myself.
+  
+### Name Scheme
+
+While the folders are seperated into chapters such as ch3, ch4 etc.
+
+The .cpp files will the following naming scheme:
+
+C03E02 - Chapter 3, Excersize 2.
+
+Where E can be replaced by
+
+T - Try this
+
+D - Drill
 
 ## Post Mortem
 
