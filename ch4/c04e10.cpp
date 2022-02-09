@@ -10,11 +10,11 @@
 
 /*
 Comments:
-I'm not completely sure how the cin.ignore() works. I get that I need to flush the cin
-for the next iteration of the loop. But I fail to understand why I need both cin.clear + cin.ignore
+
 */
 #include <iostream>
 #include <vector>
+#include <limits>
 
 using namespace std;
 
@@ -32,7 +32,7 @@ void game_setup(){
         if (cin.fail()){
             cout << "You must enter a valid number!\n";
             cin.clear();
-            cin.ignore(256, '\n');
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }   
     }
 
@@ -47,7 +47,7 @@ void game_setup(){
         else{
             cout << "You must provide valid input (r, p, s).\n";
             cin.clear();
-            cin.ignore(256, '\n');
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             --i;
         }
     }
