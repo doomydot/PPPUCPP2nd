@@ -128,16 +128,10 @@ void gameloop(){
 
 int main()
 {   
-    string machine_feed = "";
-    string temp = "";
-
-
     game_setup();
     gameloop();
 
     cout << "The game is finished.\n";
     cout << "Wins: " << wins << " | Losses: " << losses << " | Draws: " << draws << endl; 
-    
-
 }
 
