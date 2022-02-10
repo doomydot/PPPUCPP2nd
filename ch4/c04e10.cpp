@@ -12,7 +12,7 @@
 Comments:
     This ended up being somewhat more advanced than I anticipated,
     but I'm pretty happy with the end result. If you follow along
-    you should read up on cin.clear() and cin.ignore() and how what
+    you should read up on cin.clear() and cin.ignore() aswell as what
     numeric_limits<streamsize>::max() does.
 
     But basically I just divide the excersize into 3 parts, setup,
