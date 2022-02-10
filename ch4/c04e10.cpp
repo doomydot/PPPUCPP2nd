@@ -27,11 +27,7 @@ Comments:
 using namespace std;
 
 vector<char> comp_moves;
-map<char, string> moves = {
-    {'r', "rock"},
-    {'p', "paper"},
-    {'s', "scissor"}
-};
+
 
 int num_moves = 0;
 
@@ -92,28 +88,38 @@ char calculate_round(char user, char comp){
 }
 
 void gameloop(){
-    
+    map<char, string> moves = {
+        {'r', "rock"},
+        {'p', "paper"},
+        {'s', "scissor"}
+    };
+    map<char, string> result_types = {
+        {'w', "win"},
+        {'l', "loss"},
+        {'d', "draw"}
+    };
+
+    cout << "The game is starting! \n";
+
     for (int i = 0; i < size(comp_moves); i++){
         char move = ' ';
         cout << "Enter your move (r, p, s): ";
         cin >> move;
         if (!cin.fail() && (move == 'r' || move == 'p' || move == 's')){
-            
-            switch (calculate_round(move, comp_moves[i]))
+            char outcome = calculate_round(move, comp_moves[i]);
+            switch (outcome)
             {
             case 'w': //win
-                cout << "You played " << moves[move] << " and the computer played " << moves[comp_moves[i]] << ". Resulting in a win!\n";
                 ++wins;
                 break;
             case 'l': //loss
-                cout << "You played " << moves[move] << " and the computer played " << moves[comp_moves[i]] << ". Resulting in a loss!\n";
                 ++losses;
                 break;
             case 'd': //draw
-                cout << "You played " << moves[move] << " and the computer played " << moves[comp_moves[i]] << ". Resulting in a draw!\n";
                 ++draws;
                 break;
             }
+            cout << "You played " << moves[move] << " and the computer played " << moves[comp_moves[i]] << ". Resulting in a " << result_types[outcome] << "!\n";
         }
         else{
             cout << "You must provide valid input (r, p, s).\n";
@@ -123,8 +129,6 @@ void gameloop(){
         }
     }
 }
-
-
 
 int main()
 {   
