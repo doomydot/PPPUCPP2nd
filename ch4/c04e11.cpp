@@ -11,11 +11,42 @@
 
 /*
     Comments:
-    
+    Since the loop is suppose to start at 1 and not 2 which is the first prime.
+    I have to put an extra if in the check if prime function to handle cases
+    where the passed number is less than 2. Otherwise I think it's pretty neat.
 */
+
+#include <vector>
+#include <iostream>
+#include <math.h>
+
 
 using namespace std;
 
-int main(){
+vector<int> primes;
 
+bool check_if_prime(int num){
+    bool is_prime = true;
+    double possibleFactors = sqrt(num);
+
+    for (int factor = 2; factor <= possibleFactors; factor++){
+        if (num % factor == 0 ){
+            is_prime = false;
+        }
+    }
+    if (num < 2) return !is_prime;
+    return is_prime;
+}
+
+int main(){
+    for (int i = 1; i < 100; i++){
+        if (check_if_prime(i)){
+            primes.push_back(i);
+        }
+    }
+    
+    cout << "Primes: ";
+    for (auto x : primes){
+        cout <<  x << ", ";
+    }
 }
