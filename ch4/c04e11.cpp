@@ -27,9 +27,9 @@ vector<int> primes;
 
 bool check_if_prime(int num){
     bool is_prime = true;
-    double possibleFactors = sqrt(num);
+    double possibleFactor = sqrt(num);
 
-    for (int factor = 2; factor <= possibleFactors; factor++){
+    for (int factor = 2; factor <= possibleFactor; factor++){
         if (num % factor == 0 ){
             is_prime = false;
         }
