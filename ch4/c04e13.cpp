@@ -26,14 +26,12 @@ int main(){
         for (int i = 2; i < limit; i++){
             vector<int>::iterator position = find(numbers.begin(), numbers.end(), i*prime);
             if (position != numbers.end()){
-                cout << "Removing " << i*prime << endl;
                 numbers.erase(position);
             }
         }
         // find returns an iterator, an iterator - numbers.begin() = index
         // numbers[index] + 1 = next prime
         prime = numbers[(find(numbers.begin(), numbers.end(), prime) - numbers.begin()) + 1];
-        cout << "New Prime: " << prime << endl;
         
     }
 
