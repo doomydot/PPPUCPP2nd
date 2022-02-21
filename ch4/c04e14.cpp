@@ -42,6 +42,8 @@ int main(){
     
     vector<int> numbers;
 
+    cout << "Find primes from 1 to :";
+    cin >> limit;
     // Step 1: Use a vector as a list of numbers.
     for (int i = 2; i < limit; i++){
         numbers.push_back(i);
