@@ -3,8 +3,7 @@
 ## Why?
 
 Having mostly done programming sporadically and for game development I feel my foundational understanding of 
-core concepts and terminology wasn't strong enough. I'll be working with Unreal Engine which uses C++, 
-and I'd like to make rigid contributions to my games codebase.
+core concepts and terminology wasn't strong enough.
 
 In this repository you will find my solutions to mostly every excersize I found worth doing in the book.
 I upload them so that others may use this repo as a reference to compare their solutions.
