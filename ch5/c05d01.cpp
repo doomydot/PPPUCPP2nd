@@ -132,18 +132,28 @@ int main(){
         //              comparison part of for loop uses 0 instead of i
 
         vector<char> v13(5);
-        for (int i = 0; 0 < v13.size(); ++i) 
+        for (int i = 0; i < v13.size(); ++i) 
             cout << "13. Success!\n";
         
         
-        //Fragment 14
+        //Fragment 14 (No error / logical error)
         //Original:     vector<char> v14(5); for (int i=0; i<=v14.size(); ++i) cout << "14. Success!\n";
-        //vector<char> v14(5); for (int i=0; i<=v14.size(); ++i) cout << "14. Success!\n";
+        //Comment:
+        //              No error, though I assume it's suppose to iterate v14.size times so the comparison is wrong.
+        
+        vector<char> v14(5);
+        for (int i=0; i < v14.size(); ++i)
+            cout << "14. Success!\n";
         
         
-        //Fragment 15
+        //Fragment 15 (Logical error)
         //Original:     string s15 = "Success!\n"; for (int i=0; i<6; ++i) cout << s15[i];
-        //string s15 = "Success!\n"; for (int i=0; i<6; ++i) cout << s15[i];
+        //Error:    
+        //              The for loop conditional used a magic number, it should instead
+        //              have used the size of s15 as that's what we're iterating through. 
+        string s15 = "15. Success!\n";
+        for (int i=0; i < s15.size(); ++i)
+            cout << s15[i];
         
         
         //Fragment 16
