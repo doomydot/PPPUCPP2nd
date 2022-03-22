@@ -156,54 +156,124 @@ int main(){
             cout << s15[i];
         
         
-        //Fragment 16
+        //Fragment 16 (Compile-time error)
         //Original:     if (true) then cout << "Success!\n"; else cout << "Fail\n";
-        //if (true) then cout << "Success!\n"; else cout << "Fail\n";
+        //Errors:
+        //              identifier "then" is undefined
+        //              expected a ';'  
+        //Comments:
+        //              an if else that can only run one of its execution paths is moot 
+        if (true)
+            cout << "16. Success!\n";
+        else 
+            cout << "Fail\n";
         
         
-        //Fragment 17
+        //Fragment 17 (Logical error)
         //Original:     int x17 = 2000; char c17 = x17; if (c17 == 2000) cout << "17. Success!\n";
-        //int x17 = 2000; char c17 = x17; if (c17 == 2000) cout << "17. Success!\n";
+        //Comments:
+        //              the initialization of c17 is a narrow conversion that causes the condition
+        //              of the if statement to not work as expected
+        int x17 = 2000;
+        int c17 = x17;
+        if (c17 == 2000)
+            cout << "17. Success!\n";
         
         
-        //Fragment 18
+        //Fragment 18 (Logical error)
         //Original:     string s18 = "18. Success!\n"; for (int i=0; i<1109; ++i) cout << s18[i];
-        //string s18 = "18. Success!\n"; for (int i=0; i<1109; ++i) cout << s18[i];
+        //Comments:
+        //              Doesn't yield a run-time error, as out of range strings don't throw an exception
+        string s18 = "18. Success!\n";
+        for (int i = 0; i < s18.size(); ++i)
+            cout << s18[i];
         
         
-        //Fragment 19
+        //Fragment 19 (Compile-time error)
         //Original:     vector v19(5); for (int i=0; i<=v19.size(); ++i) cout << "19. Success!\n";
-        //vector v19(5); for (int i=0; i<=v19.size(); ++i) cout << "19. Success!\n";
+        //Errors:       
+        //              no instance of constructor "std::vector" matches the argument list
+        //Comments:
+        //              The vector is initialized the wrong way, without having specified a type.
+        //              Like in the code snippet a few fragments ago I remove the = from the comparison.
+        vector<int> v19(5);
+        for (int i = 0; i < v19.size(); ++i)
+            cout << "19. Success!\n";
         
         
-        //Fragment 20
+        //Fragment 20 (Logical error)
         //Original:     int i20 = 0; int j20 = 9; while (i20 < 10) ++j20; if (j20 < i20) cout << "20. Success!\n";
-        //int i20 = 0; int j20 = 9; while (i20 < 10) ++j20; if (j20 < i20) cout << "20. Success!\n";
+        //Errors:
+        //              It will loop forever and i20 will never be larger than j20
+        //              if we increase i20 with each iteration instead of j20
+        //              it then iterates 10 times and write success on the last iteration
+        int i20 = 0;
+        int j20 = 9;
+        while (i20 < 10)
+            ++i20; 
+            if (j20 < i20)
+                cout << "20. Success!\n";
         
         
-        //Fragment 21
+        //Fragment 21 (Run-time error)
         //Original:     int x21 = 2; double d21 = 5/(x21-2); if (d21 == 2*x21+0.5) cout << "21. Success!\n";
-        //int x21 = 2; double d21 = 5/(x21-2); if (d21 == 2*x21+0.5) cout << "21. Success!\n";
+        //Errors:
+        //              Arithmetic exception 
+        //Comments:
+        //              As x21 = 2, we're dividing by 0 in the double initialization
+        //              But I can't even tell what this code is expected to do
+        //              I just did minor edits on d21 so the if statement becomes true
+        int x21 = 2;
+        double d21 = 5.0 / x21 + 2.0;
+        if (d21 == 2 * x21 + 0.5)
+            cout << "21. Success!\n";
         
         
-        //Fragment 22
+        //Fragment 22 (Compile-time error and logical error)
         //Original:     string<char> s = "Success!\n"; for (int i=0; i<=10; ++i) cout << s[i];
-        //string<char> s = "Success!\n"; for (int i=0; i<=10; ++i) cout << s[i];
+        //Errors:
+        //              type "std::string" may not have a template argument list
+        //Comments:
+        //              After fixing the string it runs, but it executes one iteration
+        //              too much. We replace the magic constant 10 with the length of the string.
+        string s = "22. Success!\n";
+        for (int i = 0; i < s.size(); ++i)
+            cout << s[i]; 
         
         
-        //Fragment 23
+        //Fragment 23 (Compile-time error and logical error)
         //Original:     int i23 = 0; while (i23 < 10) ++j23; if (j23 < i23) cout << "23. Success!\n";
-        //int i23 = 0; while (i23 < 10) ++j23; if (j23 < i23) cout << "23. Success!\n";
+        //Errors:
+        //              identifier "j23" is undefined
+        //Comments:
+        //              Just defining j23 creates an infinite loop
+        //              incrementing i23 instead of j23 solves the problem
+        int j23 = 0;
+        int i23 = 0;
+        while (i23 < 10)
+            ++i23;
+            if (j23 < i23)
+                cout << "23. Success!\n";
         
         
-        //Fragment 24
+        //Fragment 24 (Logical error)
         //Original:     int x24 = 4; double d24 = 5/(x24-2); if (d24 = 2*x24+0.5) cout << "24. Success!\n";
-        //int x24 = 4; double d24 = 5/(x24-2); if (d24 = 2*x24+0.5) cout << "24. Success!\n";
+        //Errors:
+        //              It runs, but there's a definition in the if-condition
+        //              We arrange the condition to ring true
+        int x24 = 4;
+        double d24 = 5.0 / (x24 - 2);
+        if (d24 == x24 / 2 + 0.5)
+            cout << "24. Success!\n";
         
         
         //Fragment 25
         //Original:     cin << "25. Success!\n";
-        //cin << "25. Success!\n";
+        //Error:
+        //              no operator "<<" matches these operands
+        //Comment:
+        //              cin was used instead of cout
+        cout << "25. Success!\n";
 
 
 
